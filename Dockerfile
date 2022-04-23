@@ -1,5 +1,4 @@
-# 用于后端的 Dockerfile 可视情况进行修改以适应自己的需要
-# 一般使用推荐用 -e 传递参数
+# CocoaPush 心爱酱推送服务端 Docker
 FROM python:3.9.8-alpine
 LABEL cocoapush.image.author="Luckykeeper<https://luckykeeper.site|luckykeeper@luckykeeper.site>"
 WORKDIR /usr/src/app
