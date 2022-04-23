@@ -6,10 +6,11 @@ WORKDIR /usr/src/app
 
 COPY ./CocoaServer_Docker.py ./
 COPY ./run.sh ./
-RUN pip install DingtalkChatbot
+COPY ./requirements.txt ./
+RUN pip install --no-cache-dir -r requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple
 
 # ca-certificates 解决容器内 https 证书问题
-RUN apk --update add tzdata wget ca-certificates && \
+RUN apk --update add tzdata wget ca-certificates openssl && \
     cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && \
     echo "Asia/Shanghai" > /etc/timezone && \
     apk del tzdata && \
