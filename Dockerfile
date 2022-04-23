@@ -8,7 +8,8 @@ COPY ./CocoaServer_Docker.py ./
 COPY ./run.sh ./
 RUN pip install DingtalkChatbot
 
-RUN apk --update add tzdata wget && \
+# ca-certificates 解决容器内 https 证书问题
+RUN apk --update add tzdata wget ca-certificates && \
     cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && \
     echo "Asia/Shanghai" > /etc/timezone && \
     apk del tzdata && \
