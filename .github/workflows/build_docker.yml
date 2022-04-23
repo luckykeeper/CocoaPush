@@ -1,4 +1,4 @@
-name: Publish plumemo Docker
+name: Publish CocoaServer Docker
 on: [push]
 jobs:
   build:

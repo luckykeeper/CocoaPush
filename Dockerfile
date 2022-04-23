@@ -16,4 +16,4 @@ RUN apk --update add tzdata wget && \
 # 相关环境变量
 ENV debug=False CocoaServer_port='22119' py_dingpusher_token='KxA0ubjN8DMZCKrhS19uhKB2EYYnpNm60S3'
 EXPOSE 22119/udp
-ENTRYPOINT /bin/sh /usr/src/app/pysyslog/run.sh ${debug} ${webhook_url} ${token} ${CocoaServer_port} ${py_dingpusher_token}
+ENTRYPOINT /bin/sh python3 /usr/src/app/CocoaServer_Docker.py ${debug} ${webhook_url} ${token} ${CocoaServer_port} ${py_dingpusher_token}
